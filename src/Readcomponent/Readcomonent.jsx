@@ -16,9 +16,13 @@ const Readcomonent = () => {
             alert("error")
         }
     }
+
+    const handledelete =(index)=>{
+                console.log(index)
+    }
     return (
-        <div>
-            <h1>les data de firebase</h1>
+        <div className='border p-5 rounded shadow-lg'>
+            <h1 className='text-secondary mb-3 '>les data de firebase</h1>
             <button onClick={fetchData} className='btn btn-primary mb-3'>Affcher les données</button>
 
             <ul className='list-group list-group-flush d-flex justify-content-between mt-3'>
@@ -28,8 +32,11 @@ const Readcomonent = () => {
                 {
                     fruitArray.map((item,index)=>(
                         <li key={index} className='list-group-item d-flex justify-content-between'>
-                            {item.fruitName} : {item.fruitDefinition}
-                        <button className="btn btn-danger">supprimer</button>
+                           <p> {item.fruitName} : {item.fruitDefinition}</p>
+                        <div className='d-flex gap-3'>
+                        <button className="btn btn-warning"  onClick={()=>{handledelete(index)}}>Modifier</button>
+                        <button className="btn btn-danger"  onClick={()=>{handledelete(index)}}>supprimer</button>
+                        </div>
                         </li>
                     ))
                 }
