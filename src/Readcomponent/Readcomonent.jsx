@@ -19,16 +19,17 @@ const Readcomonent = () => {
     return (
         <div>
             <h1>les data de firebase</h1>
-            <button onClick={fetchData}>Affcher les données</button>
+            <button onClick={fetchData} className='btn btn-primary mb-3'>Affcher les données</button>
 
-            <ul>
+            <ul className='list-group list-group-flush d-flex justify-content-between mt-3'>
                 {
                     console.log(fruitArray)
                 }
                 {
                     fruitArray.map((item,index)=>(
-                        <li key={index}>
+                        <li key={index} className='list-group-item d-flex justify-content-between'>
                             {item.fruitName} : {item.fruitDefinition}
+                        <button className="btn btn-danger">supprimer</button>
                         </li>
                     ))
                 }

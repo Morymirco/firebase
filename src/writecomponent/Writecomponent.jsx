@@ -27,10 +27,10 @@ const Writecomponent = () => {
     return (
         <div>
             <h1>Enregistrement</h1>
-            <input type="text" value={inputvalue}  onChange={(e)=>setInputValue1(e.target.value)}/>
+            <input type="text" className="form-control" value={inputvalue}  onChange={(e)=>setInputValue1(e.target.value)}/>
             <br />
-            <input type="text" value={inputValue2}  onChange={(e)=>setinputValue2(e.target.value)}/>
-            <button onClick={savedata}>Enregistrer</button>
+            <input type="text" value={inputValue2} className="form-control"  onChange={(e)=>setinputValue2(e.target.value)}/>
+            <button onClick={savedata} className='btn btn-success mt-3'>Enregistrer</button>
 
             <br />
             <br />
