@@ -32,10 +32,10 @@ const Readcomonent = () => {
                 {
                     fruitArray.map((item,index)=>(
                         <li key={index} className='list-group-item d-flex justify-content-between'>
-                           <p> {item.fruitName} : {item.fruitDefinition}</p>
+                           <p> {item.fruitName} &nbsp; &nbsp;  :  &nbsp;  {item.fruitDefinition}</p>
                         <div className='d-flex gap-3'>
-                        <button className="btn btn-warning"  onClick={()=>{handledelete(index)}}>Modifier</button>
-                        <button className="btn btn-danger"  onClick={()=>{handledelete(index)}}>supprimer</button>
+                        <button className="btn btn-warning"  onClick={()=>{handledelete(index)}}>Modifier <i className='fa fa-edit text-secondary m-1'></i></button>
+                        <button className="btn btn-danger"  onClick={()=>{handledelete(index)}}>supprimer <i className='fa fa-trash text-success m-2'></i></button>
                         </div>
                         </li>
                     ))
