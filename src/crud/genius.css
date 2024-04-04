@@ -1,0 +1,70 @@
+.tutor-form-row input{
+    padding:13px !important;
+    
+}
+.tutor-form-group input{
+    padding:13px !important;
+}
+
+tutor-row tutor-gx-xl-5{
+	margin-top:120px;
+}
+.tutor-fs-7 tutor-color-muted{
+	color:#11CEDA;
+}
+li .tutor-row{
+	margin-top:5px;
+}
+.tutor-wrap {
+	margin-top:120px;
+}
+.tutor-course-list {
+	margin-bottom:50px;
+}
+
+.tutor-course-single-content-wrapper{
+	margin-top:120px;
+}
+.tutor-mb-32{
+	color:white !important;
+}
+.tutor-dashboard-header-username{
+	color:white;
+}
+.tutor-dashboard-menu-item-text,.tutor-ratings-average,.tutor-dashboard-title{
+	color:white;
+}
+.tutor-ratings-stars{
+	color:#A855F7;
+}
+.tutor-card{
+	background-color:#EBD5FF;
+}
+.tutor-frontend-dashboard-course-progress .tutor-fs-5 {
+	color:white;
+}
+.popular-courses-heading-dashboard span , tutor-dashboard-content .tutor-fs-5{
+	color:white;
+}
+.tutor-td-top .tutor-ml-16{
+	color:white;
+}
+.tutor-dashboard-header-greetings{
+	color:#A855F7;
+}
+#tutor-registration-wrap{
+	margin-top:90px;
+}
+.tutor-course-filter-container{
+	background-color:#12141D;
+}
+.tutor-color-black{
+	color:black;
+}
+
+
+@media (min-width: 1280px) {
+  .tutor-row.tutor-gx-xl-5 {
+    margin-top:220px;
+  }
+}
