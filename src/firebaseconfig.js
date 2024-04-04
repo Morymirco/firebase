@@ -1,21 +1,18 @@
 // Import the functions you need from the SDKs you need
+import firebase from "firebase/compat/app"
+import 'firebase/compat/firestore'
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAdGekH2Dd5qHwv8CSM73cSLnAdFN-lZhI",
-  authDomain: "odc-crud-99478.firebaseapp.com",
-  databaseURL:"https://odc-crud-99478-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "odc-crud-99478",
-  storageBucket: "odc-crud-99478.appspot.com",
-  messagingSenderId: "335913665111",
-  appId: "1:335913665111:web:2a6376949da9c152139912"
+  apiKey: "AIzaSyAuHNrWM0XAGbbku9IpjbgmTxEnbNuRquE",
+  authDomain: "odc-crud-a0add.firebaseapp.com",
+  projectId: "odc-crud-a0add",
+
+  storageBucket: "odc-crud-a0add.appspot.com",
+  messagingSenderId: "427534243572",
+  appId: "1:427534243572:web:3592934e701a51904530a1"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-export default app
+const app = firebase.initializeApp(firebaseConfig);
+export const db = firebase.firestore();
