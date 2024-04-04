@@ -1,31 +1,62 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { db } from '../firebaseconfig';
-import {collection,doc,addDoc,getDocs,deleteDoc,updateDoc} from 'firebase/firestore'
+import { collection, doc, addDoc, getDocs, deleteDoc, updateDoc } from 'firebase/firestore'
 const Crud = () => {
-    const [nom,setNom]=useState("")
+    const [nom, setNom] = useState("")
+    const [fetchdata, setfetchdata] = useState([])
 
-        //creation de la reference de la base de données
-    const dbref = collection(db,"CRUD")
+    //creation de la reference de la base de données
+    const dbref = collection(db, "CRUD")
     //ajout de la donnée
-    const add = async ()=>{
-        const addData = await addDoc(dbref , {Nom:nom})
-        if(addData){
+    const add = async () => {
+        const addData = await addDoc(dbref, { Nom: nom })
+        if (addData) {
             alert("envoyer avec succès")
             window.location.reload()
         }
-        else{
+        else {
             alert("erreur")
         }
     }
-const handlechange=(e)=>{
-    setNom(e.target.value)
-}
+    const handlechange = (e) => {
+        setNom(e.target.value)
+    }
+
+    //Recuperation des donnée
+    const fetch = async () => {
+        const snapshot = await getDocs(dbref)
+        const fetchdata = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        setfetchdata(fetchdata)
+        console.log(fetchdata)
+    }
+
+    useEffect(() => {
+        fetch()
+    }, [])
+
     return (
         <div>
-            <input type="text" className="form-control mb-3" placeholder="nom" onChange={handlechange}/>
+            <input type="text" className="form-control mb-3" placeholder="nom" onChange={handlechange} />
             <button className="btn btn-primary" onClick={add}>Ajouter</button>
+
+            <div className="mt-5">
+            <ul className='list-group list-group-flush d-flex justify-content-around mt-3'>
+                {
+                    fetchdata.map((data)=>(
+                        <li key={data.id} className='list-group-item d-flex justify-content-between'>
+                        {data.id}   <p className='mx-5'> {data.Nom} &nbsp; &nbsp;</p>
+                        <div className='d-flex gap-3'>
+                        <button className="btn btn-warning"  onClick={()=>{handledelete(data.id)}}>Modifier <i className='fa fa-edit text-secondary m-1'></i></button>
+                        <button className="btn btn-danger"  onClick={()=>{handledelete(index)}}>supprimer <i className='fa fa-trash text-success m-2'></i></button>
+                        </div>
+                        </li>
+                    ))
+                }
+            </ul>
+            </div>
         </div>
     );
 }
+
 
 export default Crud;
