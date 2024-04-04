@@ -53,6 +53,15 @@ const update =async ()=>{
         alert(error,"modification non effectuer")
     }
 }
+const sup = async (id)=> {
+    const delref = doc(dbref, id)
+    try {
+        await deleteDoc(delref)
+        window.location.reload()
+    } catch (error) {
+        alert(error)
+    }
+}
     return (
         <div>
             <input type="text" className="form-control mb-3" placeholder="nom" onChange={handlechange} value={nom}/>
@@ -67,7 +76,7 @@ const update =async ()=>{
                         {data.id}   <p className='mx-5'> {data.Nom} &nbsp; &nbsp;</p>
                         <div className='d-flex gap-3'>
                         <button className="btn btn-warning"  onClick={()=>{passData(data.id)}}>Modifier <i className='fa fa-edit text-secondary m-1'></i></button>
-                        <button className="btn btn-danger"  onClick={()=>{handledelete(index)}}>supprimer <i className='fa fa-trash text-success m-2'></i></button>
+                        <button className="btn btn-danger"  onClick={()=>{sup(data.id)}}>supprimer <i className='fa fa-trash text-success m-2'></i></button>
                         </div>
                         </li>
                     ))
